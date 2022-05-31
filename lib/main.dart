@@ -63,8 +63,8 @@ class _MyHomePageState extends State {
               String body = Uri.encodeComponent(_body);
               String url = 'mailto:$email?subject=$subject&body=$body';
               debugPrint(url);
-              if (await canLaunch(url)) {
-                launch(url);
+              if (await canLaunchUrl( Uri.parse(url) )) {
+                launchUrl( Uri.parse(url), mode: LaunchMode.externalApplication );
               }
             },
           ),
